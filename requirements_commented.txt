@@ -1,0 +1,6 @@
+# Requirements file for Bank System Project
+# This file specifies the Python packages needed to run the bank system
+
+# pandas - Data manipulation library used for CSV file operations
+# Version 1.3.0 or higher is required for proper functionality
+pandas>=1.3.0

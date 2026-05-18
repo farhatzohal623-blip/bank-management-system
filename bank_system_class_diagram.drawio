@@ -1,0 +1,106 @@
+<mxfile host="65bd71144e">
+    <diagram name="Bank System Class Diagram" id="bank-system">
+        <mxGraphModel dx="1198" dy="466" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#EBEBEB" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="account-class" value="&lt;&lt;abstract&gt;&gt; Account" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="400" width="320" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="account-attr" value="- _account_number: str&#xa;- __customer_id: str&#xa;- _balance: float&#xa;- _created_at: datetime&#xa;- _transaction_history: List[Dict]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="account-class" vertex="1">
+                    <mxGeometry y="30" width="320" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="account-methods" value="+ deposit(amount: float): bool&#xa;+ get_balance(): float&#xa;+ get_account_number(): str&#xa;+ get_customer_id(): str&#xa;+ get_transaction_history(): List[Dict]&#xa;+ _add_transaction(type: str, amount: float)&#xa;+ __str__(): str&#xa;+ __repr__(): str&#xa;+ __eq__(other): bool&#xa;+ __lt__(other): bool&#xa;+ withdraw(amount: float): bool &#xa;+ get_account_type(): str " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="account-class" vertex="1">
+                    <mxGeometry y="120" width="320" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="savings-class" value="SavingsAccount" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="860" width="260" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="savings-attr" value="- INTEREST_RATE: float = 0.02&#xa;- _withdrawal_limit: int = 6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="savings-class" vertex="1">
+                    <mxGeometry y="30" width="260" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="savings-methods" value="+ withdraw(amount: float): bool&#xa;+ apply_interest(): float&#xa;+ get_account_type(): str&#xa;+ _count_monthly_withdrawals(): int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="savings-class" vertex="1">
+                    <mxGeometry y="70" width="260" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="checking-class" value="CheckingAccount" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="1100" y="860" width="260" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="checking-attr" value="- OVERDRAFT_LIMIT: float = 500.0&#xa;- TRANSACTION_FEE: float = 1.0&#xa;- _has_overdraft_protection: bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="checking-class" vertex="1">
+                    <mxGeometry y="30" width="260" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="checking-methods" value="+ withdraw(amount: float): bool&#xa;+ get_account_type(): str&#xa;+ toggle_overdraft_protection()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="checking-class" vertex="1">
+                    <mxGeometry y="80" width="260" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="customer-class" value="Customer" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="1050" y="300" width="280" height="290" as="geometry"/>
+                </mxCell>
+                <mxCell id="customer-attr" value="- _customer_id: str&#xa;- _name: str&#xa;- _email: str&#xa;- _phone: str&#xa;- _accounts: List[Account]&#xa;- _created_at: datetime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="customer-class" vertex="1">
+                    <mxGeometry y="30" width="280" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="customer-methods" value="+ add_account(account: Account): bool&#xa;+ remove_account(account_number: str): bool&#xa;+ get_accounts(): List[Account]&#xa;+ get_total_balance(): float&#xa;+ get_customer_id(): str&#xa;+ get_name(): str&#xa;+ get_email(): str&#xa;+ get_phone(): str&#xa;+ __str__(): str&#xa;+ __repr__(): str" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="customer-class" vertex="1">
+                    <mxGeometry y="120" width="280" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="bank-class" value="Bank &#xa;(Singleton Pattern)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="1440" y="490" width="390" height="390" as="geometry"/>
+                </mxCell>
+                <mxCell id="bank-attr" value="- _instance: Bank &lt;small&gt;(class variable)&lt;/small&gt;&#xa;- _name: str&#xa;- _customers: Dict[str, Customer]&#xa;- _accounts: Dict[str, Account]&#xa;- _data_file: str&#xa;- _initialized: bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="bank-class" vertex="1">
+                    <mxGeometry y="40" width="390" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="bank-methods" value="+ __new__(): Bank&#xa;+ __init__()&#xa; (Factory Methods)&#xa;+ create_savings_account(customer_id, balance): SavingsAccount&#xa;+ create_checking_account(customer_id, balance): CheckingAccount&#xa;+ add_customer(name, email, phone): Customer&#xa;+ add_account(account, customer_id): bool&#xa;+ get_customer(customer_id): Customer&#xa;+ get_account(account_number): Account&#xa;+ get_all_customers(): List[Customer]&#xa;+ get_all_accounts(): List[Account]&#xa;+ get_total_deposits(): float&#xa;+ save_to_csv(): bool&#xa;+ load_from_csv(): bool&#xa;+ __str__(): str&#xa;+ __len__(): int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="bank-class" vertex="1">
+                    <mxGeometry y="140" width="390" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="savings-inheritance" value="" style="endArrow=block;endSize=16;endFill=1;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="account-class" target="savings-class" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1130" y="660" as="sourcePoint"/>
+                        <mxPoint x="1180" y="610" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="checking-inheritance" value="" style="endArrow=block;endSize=16;endFill=1;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="account-class" target="checking-class" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1130" y="660" as="sourcePoint"/>
+                        <mxPoint x="1180" y="610" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="customer-composition" value="1..*" style="endArrow=diamond;endFill=1;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="customer-class" target="account-class" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="910" y="440" as="sourcePoint"/>
+                        <mxPoint x="960" y="390" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="bank-customer-composition" value="1..*" style="endArrow=diamond;endFill=1;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="customer-class" target="bank-class" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="910" y="440" as="sourcePoint"/>
+                        <mxPoint x="960" y="390" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="bank-account-composition" value="1..*" style="endArrow=diamond;endFill=1;html=1;rounded=0;entryX=-0.009;entryY=0.37;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryPerimeter=0;" parent="1" source="account-methods" target="bank-methods" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="980" y="265" as="sourcePoint"/>
+                        <mxPoint x="1580" y="515" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="customer-has-accounts" value="has" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="1369" y="530" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="bank-owns-customers" value="owns" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="980" y="460" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="bank-owns-accounts" value="manages" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=0;" parent="1" vertex="1">
+                    <mxGeometry x="1160" y="690" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="savings-inherits" value="extends" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="810" y="800" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="checking-inherits" value="extends" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="1030" y="780" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend" value="&lt;b&gt;OOP Concepts Demonstrated:&lt;/b&gt;&#xa;&#xa;• &lt;b&gt;Abstraction:&lt;/b&gt; Account is abstract class&#xa;• &lt;b&gt;Inheritance:&lt;/b&gt; SavingsAccount, CheckingAccount extend Account&#xa;• &lt;b&gt;Encapsulation:&lt;/b&gt; Private (__), Protected (_) attributes&#xa;• &lt;b&gt;Polymorphism:&lt;/b&gt; withdraw(), get_account_type() methods&#xa;• &lt;b&gt;Composition:&lt;/b&gt; Customer has Accounts, Bank has Customers/Accounts&#xa;• &lt;b&gt;Singleton Pattern:&lt;/b&gt; Bank class ensures single instance&#xa;• &lt;b&gt;Factory Pattern:&lt;/b&gt; create_savings_account(), create_checking_account()&#xa;• &lt;b&gt;Magic Methods:&lt;/b&gt; __str__, __repr__, __eq__, __lt__, __len__" style="text;html=1;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rounded=1;" parent="1" vertex="1">
+                    <mxGeometry x="710" y="1110" width="440" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="patterns-legend" value="&lt;b&gt;Design Patterns:&lt;/b&gt;&#xa;&#xa;• &lt;b&gt;Singleton Pattern:&lt;/b&gt; Bank class uses __new__ to ensure only one instance&#xa;• &lt;b&gt;Factory Pattern:&lt;/b&gt; Static methods create different account types&#xa;• &lt;b&gt;Template Method:&lt;/b&gt; Account defines common deposit() method&#xa;• &lt;b&gt;Strategy Pattern:&lt;/b&gt; Different withdraw() implementations" style="text;html=1;strokeColor=#666666;fillColor=#e8f5e8;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rounded=1;" parent="1" vertex="1">
+                    <mxGeometry x="1210" y="1110" width="429" height="120" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
