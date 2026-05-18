@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 🏦 Bank Management System
 
 ## 📌 Project Overview
@@ -65,14 +65,3 @@ This project is a Python-based Bank Management System developed using Object-Ori
 
 ```bash
 python bank_system.py
-
----
-
-# 🚀 AFTER THAT
-
-Save:
-```text id="x3"
-Ctrl + S
-=======
-# Bank Management System
->>>>>>> 4048a77 (Add README)
