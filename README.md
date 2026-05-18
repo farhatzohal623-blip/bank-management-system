@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🏦 Bank Management System
 
 ## 📌 Project Overview
@@ -72,3 +73,6 @@ python bank_system.py
 Save:
 ```text id="x3"
 Ctrl + S
+=======
+# Bank Management System
+>>>>>>> 4048a77 (Add README)
